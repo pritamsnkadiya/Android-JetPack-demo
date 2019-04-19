@@ -1,0 +1,135 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.example.pritamsankadiya.jetpackdemo"
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    //Added Java 8 Support
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    //Added Data Binding Support
+    dataBinding {
+        enabled = true
+    }
+}
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    def versions = [
+            layout          : '1.1.3',
+            v4              : '28.0.0',
+            junit           : '4.12',
+            runner          : '1.0.2',
+            core            : '3.0.2',
+            supportLib      : '28.0.0',
+            constraintLayout: '1.1.3',
+            butterknife     : '10.1.0',
+            timber          : '4.6.0',
+            room            : '1.0.0',
+            roomExtensions  : '1.1.0',
+            retrofit        : '2.3.0',
+            gson            : '2.3.0',
+            dagger          : '2.13',
+            compiler        : '2.13',
+            api             : '1.0',
+            inject          : '1',
+            glide           : '4.8.0',
+            glid_compiler   : '4.8.0',
+            rxandroid       : '2.0.1',
+            rxjava          : '2.1.8',
+            adapter         : '1.0.0',
+            pad             : '1.2.1'
+    ]
+    ext.versions = versions
+    ext.pri = [
+            support      : [
+                    appcompat       : 'com.android.support:appcompat-v7:' + versions.supportLib,
+                    constraintLayout: 'com.android.support.constraint:constraint-layout:' + versions.constraintLayout,
+                    recyclerview    : 'com.android.support:recyclerview-v7:' + versions.supportLib,
+                    cardview        : 'com.android.support:cardview-v7:' + versions.supportLib,
+                    design          : 'com.android.support:design:' + versions.supportLib,
+
+            ],
+            butterknife  : [
+                    core               : 'com.jakewharton:butterknife:' + versions.butterknife,
+                    annotationProcessor: 'com.jakewharton:butterknife-compiler:' + versions.butterknife,
+
+            ],
+            room         : [
+                    core               : 'android.arch.persistence.room:runtime:' + versions.room,
+                    compiler           : 'android.arch.persistence.room:compiler:' + versions.room,
+                    lifecycleExtensions: 'android.arch.lifecycle:extensions:' + versions.roomExtensions,
+
+            ],
+
+            timber       : 'com.jakewharton.timber:timber:' + versions.timber,
+            retrofit     : 'com.squareup.retrofit2:retrofit:' + versions.retrofit,
+            gson         : 'com.squareup.retrofit2:converter-gson:' + versions.gson,
+            dagger       : 'com.google.dagger:dagger:' + versions.dagger,
+            compiler     : 'com.google.dagger:dagger-compiler:' + versions.compiler,
+            api          : 'javax.annotation:jsr250-api:' + versions.api,
+            inject       : 'javax.inject:javax.inject:' + versions.inject,
+            glide        : 'com.github.bumptech.glide:glide:' + versions.glide,
+            glid_compiler: 'com.github.bumptech.glide:compiler:' + versions.glid_compiler,
+            rxandroid    : 'io.reactivex.rxjava2:rxandroid:' + versions.rxandroid,
+            rxjava       : 'io.reactivex.rxjava2:rxjava:' + versions.rxjava,
+            adapter      : 'com.jakewharton.retrofit:retrofiAndroidX t2-rxjava2-adapter:' + versions.adapter,
+            layout       : 'com.android.support.constraint:constraint-layout:' + versions.layout,
+            v4           : 'com.android.support:support-v4:' + versions.v4,
+            junit        : 'junit:junit:' + versions.junit,
+            runner       : 'com.android.support.test:runner:' + versions.runner,
+            core         : 'com.android.support.test.espresso:espresso-core:' + versions.core,
+            signature    : 'com.github.gcacace:signature-pad:' + versions.pad,
+    ]
+    implementation pri.layout
+    implementation pri.v4
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation pri.junit
+    androidTestImplementation pri.runner
+    androidTestImplementation pri.core
+    implementation pri.support.appcompat
+    implementation pri.support.constraintLayout
+    implementation pri.support.cardview
+    implementation pri.support.recyclerview
+    implementation pri.support.design
+    //Butter knife
+    implementation pri.butterknife.core
+    annotationProcessor pri.butterknife.annotationProcessor
+    //Room, LiveData and ViewModel
+    implementation pri.room.core
+    annotationProcessor pri.room.compiler
+    implementation pri.room.lifecycleExtensions
+    //Timber-Logs
+    implementation pri.timber
+    //Retrofit lib
+    implementation pri.retrofit
+    implementation pri.gson
+    // dagger dependency for DI  dagger dependency for DI
+    implementation pri.dagger
+    annotationProcessor pri.compiler
+    compileOnly pri.api
+    implementation pri.inject
+    //glide
+    implementation pri.glide
+    annotationProcessor pri.glid_compiler
+    //RxJava lib
+    implementation pri.rxandroid
+    implementation pri.rxjava
+    implementation pri.adapter
+    implementation pri.signature
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="multiView"
+            type="com.example.pritamsankadiya.jetpackdemo.data.model.MultiView" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{multiView.text}"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/action_image"
+            android:layout_width="match_parent"
+            android:layout_height="150sp"
+            android:scaleType="centerCrop"
+            bind:imageUrl="@{multiView.imageName1}" />
+
+     <!--   <com.wingjay.blurimageviewlib.BlurImageView
+            android:id="@+id/full_blur_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="150sp"
+            bind:imageUrl="@{multiView.imageName1}"
+            />-->
+    </LinearLayout>
+
+</layout>

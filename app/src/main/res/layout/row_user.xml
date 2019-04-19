@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.example.pritamsankadiya.jetpackdemo.data.model.User" />
+
+        <variable
+            name="handler"
+            type="com.example.pritamsankadiya.jetpackdemo.ui.adapter.MainUserAdapter" />
+    </data>
+
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardElevation="6dp"
+        card_view:contentPadding="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+
+              <TextView
+                  android:id="@+id/update"
+                  android:layout_width="0sp"
+                  android:layout_weight="0.5"
+                  android:layout_height="wrap_content"
+                  android:gravity="start"
+                  android:textStyle="bold"
+                  android:layout_marginBottom="8dp"
+                  android:text="Update" />
+
+              <TextView
+                  android:id="@+id/delete"
+                  android:layout_width="0sp"
+                  android:layout_weight="0.5"
+                  android:layout_height="wrap_content"
+                  android:gravity="right"
+                  android:textStyle="bold"
+                  android:layout_marginBottom="8dp"
+                  android:text="Delete" />
+          </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@{`First Name: ` + user.firstName}"
+                tools:text="First Name" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@{`Last Name: ` + user.lastName}"
+                tools:text="Last Name" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@{`Email: ` + user.email}"
+                tools:text="Email Id" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@{`Mobile No: ` + user.mobile}"
+                tools:text="Mobile No." />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`Age: ` + user.age}"
+                tools:text="Age" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</layout>
